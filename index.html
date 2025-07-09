@@ -4,8 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Birthday 🎉</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="cake.png" type="image/png">
+  <meta name="theme-color" content="#fff6f9" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Birthday">
+  <link rel="apple-touch-icon" href="cake.png" />
+
+  <!-- Google Fonts -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
+
+    /* Fade In */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body > * {
+      animation: fadeIn 1s ease-in-out;
+    }
 
     body {
       margin: 0;
@@ -19,53 +39,57 @@
     h1 {
       text-align: center;
       font-family: 'Great Vibes', cursive;
-      font-size: 3.7rem;
-      margin-top: 50px;
+      font-size: 2.5rem;
+      margin-top: 40px;
       color: #d6788f;
     }
 
     #message {
       text-align: center;
-      font-size: 1.3rem;
-      max-width: 600px;
+      font-size: 1.1rem;
+      padding: 0 15px;
+      max-width: 90%;
       margin: 25px auto 40px;
       font-style: italic;
       line-height: 1.7;
     }
 
     #slideshow {
-  width: 350px;
-  height: 650px;
-  margin: 0 auto 40px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 0 20px #f3c0c7aa;
-  position: relative;
-}
-
+      width: 90%;
+      max-width: 350px;
+      height: 500px;
+      margin: 0 auto 30px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #f3c0c7aa;
+      position: relative;
+    }
 
     #slideshow img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       position: absolute;
+      top: 0;
+      left: 0;
       opacity: 0;
       transition: opacity 1s ease-in-out;
+      z-index: 0;
     }
 
     #slideshow img.active {
       opacity: 1;
-      position: relative;
+      z-index: 1;
     }
 
     .btn {
       background: #da7a91;
       color: white;
       border: none;
-      padding: 10px 25px;
+      padding: 10px 20px;
       border-radius: 25px;
-      font-size: 1rem;
-      margin: 10px;
+      font-size: 0.95rem;
+      margin: 8px 6px;
       cursor: pointer;
       transition: background 0.3s ease;
     }
@@ -107,13 +131,13 @@
   <h1>Happy Birthday 🎂</h1>
 
   <div id="message">
-    ဒီနေ့က ပပရဲ့မွေးနေ့။ကမ္ဘာမြေပေါ်မှာ ကြည်လင်အေးချမ်းပြီး လှပတဲ့အလင်းတန်းလေးတစ်ခု မွေးဖွားလာတဲ့နေ့လို့ ပြောလည်းမှားမယ်လို့တော့အကိုမထင်ဘူး။  
+    ဒီနေ့က ပပရဲ့မွေးနေ့။ကမ္ဘာမြေပေါ်မှာ ကြည်လင်အေးချမ်းပြီး လှပတဲ့အလင်းတန်းလေးတစ်ခု မွေးဖွားလာတဲ့နေ့လို့ ပြောလည်းမှားမယ်လို့တော့အကိုမထင်ဘူး။
     <br><br>
-    ဒီမွေးနေ့မှာ ပပအနား ရှိနေသည်ဖြစ်စေ၊ မရှိခဲ့သည်ဖြစ်စေ၊ ပပရဲ့အပြုံးတွေ၊ပျော်ရွှင်ခြင်းတွေနဲ့၊အေးချမ်းခြင်းတွေအတွက် အကိုဆုတောင်းပေးနေမှာပါ။  
+    ဒီမွေးနေ့မှာ ပပအနား ရှိနေသည်ဖြစ်စေ၊ မရှိခဲ့သည်ဖြစ်စေ၊ ပပရဲ့အပြုံးတွေ၊ပျော်ရွှင်ခြင်းတွေနဲ့၊အေးချမ်းခြင်းတွေအတွက် အကိုဆုတောင်းပေးနေမှာပါ။
     <br><br>
-   ဒီမွေးနေ့ကနေစပြီး ပပအတွက် ပိုပြီး လှပမှု၊ ပျော်ရွှင်မှုနဲ့ အချစ်တွေ ပြည့်စုံလာပါစေ။
-   <br><br>
-   ပပဆိုတဲ့ကောင်မလေးဟာလည်း ဒီကမ္ဘာကြီးရဲ့ အချစ်တွေ၊ အိပ်မက်တွေအတွက် တံခါးလေးဖြစ်ပါစေ။
+    ဒီမွေးနေ့ကနေစပြီး ပပအတွက် ပိုပြီး လှပမှု၊ ပျော်ရွှင်မှုနဲ့ အချစ်တွေ ပြည့်စုံလာပါစေ။
+    <br><br>
+    ပပဆိုတဲ့ကောင်မလေးဟာလည်း ဒီကမ္ဘာကြီးရဲ့ အချစ်တွေ၊ အိပ်မက်တွေအတွက် တံခါးလေးဖြစ်ပါစေ။
   </div>
 
   <!-- Slideshow -->
@@ -128,33 +152,35 @@
     <button class="btn" id="next">Next</button>
     <button class="btn" id="toggleMusic">Play Music ▶️</button>
   </div>
-<div style="text-align:center; font-style: italic; color: #b96b7c; font-size: 1.05rem; margin-bottom: 20px;">
-  With love, from <strong>Aung 💗</strong>
-</div>
+
+  <div style="text-align:center; font-style: italic; color: #b96b7c; font-size: 1.05rem; margin-bottom: 20px;">
+    With love, from <strong>Aung 💗</strong>
+  </div>
 
   <footer>
-   
-</div>
-
     If only you knew how special you are to someone... 🎈
   </footer>
 
   <!-- Music -->
   <audio id="music" loop>
-    <source src="birthday.mp4">
+    <source src="birthday.mp4" type="audio/mp4">
   </audio>
 
+  <!-- Scripts -->
   <script>
     // Slideshow
     const slides = document.querySelectorAll('#slideshow img');
     let current = 0;
+
     function showSlide(index) {
       slides.forEach((img, i) => img.classList.toggle("active", i === index));
     }
+
     document.getElementById("next").onclick = () => {
       current = (current + 1) % slides.length;
       showSlide(current);
     };
+
     document.getElementById("prev").onclick = () => {
       current = (current - 1 + slides.length) % slides.length;
       showSlide(current);
@@ -173,7 +199,7 @@
     }
     setInterval(createFloaty, 400);
 
-    // Music play/pause button
+    // Music Play/Pause
     const music = document.getElementById("music");
     const toggleBtn = document.getElementById("toggleMusic");
     let isPlaying = false;
@@ -190,16 +216,19 @@
       }
     };
   </script>
-<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:999;"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script>
-  confetti({
-    particleCount: 150,
-    spread: 70,
-    origin: { y: 0.6 }
-  });
-</script>
+
+  <!-- Confetti -->
+  <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:999;"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  </script>
 
 </body>
 </html>
+
 
