@@ -104,15 +104,16 @@
 </head>
 <body>
 
-  <h1 style="font-size: 3rem;">Happy Birthday, Pa Pa 🎂</h1>
-
+  <h1>Happy Birthday 🎂</h1>
 
   <div id="message">
-    Today is the day a kind, gentle light came into the world.  
+    ဒီနေ့က ပပရဲ့မွေးနေ့။ကမ္ဘာမြေပေါ်မှာ ကြည်လင်အေးချမ်းပြီး လှပတဲ့အလင်းတန်းလေးတစ်ခု မွေးဖွားလာတဲ့နေ့လို့ ပြောလည်းမှားမယ်လို့တော့အကိုမထင်ဘူး။  
     <br><br>
-    I may not be beside you, but I’m quietly wishing you happiness, peace, and smiles.  
+    ဒီမွေးနေ့မှာ ပပအနား ရှိနေသည်ဖြစ်စေ၊ မရှိခဲ့သည်ဖြစ်စေ၊ ပပရဲ့အပြုံးတွေ၊ပျော်ရွှင်ခြင်းတွေနဲ့၊အေးချမ်းခြင်းတွေအတွက် အကိုဆုတောင်းပေးနေမှာပါ။  
     <br><br>
-    May this year bring you even more beauty, laughter, and love.
+   ဒီမွေးနေ့ကနေစပြီး ပပအတွက် ပိုပြီး လှပမှု၊ ပျော်ရွှင်မှုနဲ့ အချစ်တွေ ပြည့်စုံလာပါစေ။
+   <br><br>
+   ပပဆိုတဲ့ကောင်မလေးဟာလည်း ဒီကမ္ဘာကြီးရဲ့ အချစ်တွေ၊ အိပ်မက်တွေအတွက် တံခါးလေးဖြစ်ပါစေ။
   </div>
 
   <!-- Slideshow -->
@@ -127,8 +128,14 @@
     <button class="btn" id="next">Next</button>
     <button class="btn" id="toggleMusic">Play Music ▶️</button>
   </div>
+<div style="text-align:center; font-style: italic; color: #b96b7c; font-size: 1.05rem; margin-bottom: 20px;">
+  With love, from <strong>Aung 💗</strong>
+</div>
 
   <footer>
+   
+</div>
+
     If only you knew how special you are to someone... 🎈
   </footer>
 
@@ -183,6 +190,15 @@
       }
     };
   </script>
+<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:999;"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+</script>
 
 </body>
 </html>
