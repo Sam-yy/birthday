@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday 🎉</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff6f9;
+      font-family: 'Quicksand', sans-serif;
+      color: #683e47;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.7rem;
+      margin-top: 50px;
+      color: #d6788f;
+    }
+
+    #message {
+      text-align: center;
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 25px auto 40px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    #slideshow {
+  width: 350px;
+  height: 650px;
+  margin: 0 auto 40px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #f3c0c7aa;
+  position: relative;
+}
+
+
+    #slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #slideshow img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .btn {
+      background: #da7a91;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 1rem;
+      margin: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #b75972;
+    }
+
+    .floaty {
+      position: fixed;
+      bottom: -50px;
+      font-size: 28px;
+      animation: floatUp 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #9b6c7a;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday 🎂</h1>
+
+  <div id="message">
+    Today is the day a kind, gentle light came into the world.  
+    <br><br>
+    I may not be beside you, but I’m quietly wishing you happiness, peace, and smiles.  
+    <br><br>
+    May this year bring you even more beauty, laughter, and love.
+  </div>
+
+  <!-- Slideshow -->
+  <div id="slideshow">
+    <img src="pa1.jpg" class="active">
+    <img src="pa2.jpg">
+    <img src="pa3.jpg">
+  </div>
+
+  <div style="text-align:center;">
+    <button class="btn" id="prev">Previous</button>
+    <button class="btn" id="next">Next</button>
+    <button class="btn" id="toggleMusic">Play Music ▶️</button>
+  </div>
+
+  <footer>
+    If only you knew how special you are to someone... 🎈
+  </footer>
+
+  <!-- Music -->
+  <audio id="music" loop>
+    <source src="birthday.mp4">
+  </audio>
+
+  <script>
+    // Slideshow
+    const slides = document.querySelectorAll('#slideshow img');
+    let current = 0;
+    function showSlide(index) {
+      slides.forEach((img, i) => img.classList.toggle("active", i === index));
+    }
+    document.getElementById("next").onclick = () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    };
+    document.getElementById("prev").onclick = () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    };
+
+    // Floating emojis
+    function createFloaty() {
+      const el = document.createElement("div");
+      el.classList.add("floaty");
+      el.textContent = Math.random() < 0.5 ? "🎂" : "🎈";
+      el.style.left = Math.random() * window.innerWidth + "px";
+      el.style.fontSize = (24 + Math.random() * 12) + "px";
+      el.style.animationDuration = (6 + Math.random() * 5) + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 12000);
+    }
+    setInterval(createFloaty, 400);
+
+    // Music play/pause button
+    const music = document.getElementById("music");
+    const toggleBtn = document.getElementById("toggleMusic");
+    let isPlaying = false;
+
+    toggleBtn.onclick = () => {
+      if (!isPlaying) {
+        music.play();
+        toggleBtn.textContent = "Pause Music ⏸️";
+        isPlaying = true;
+      } else {
+        music.pause();
+        toggleBtn.textContent = "Play Music ▶️";
+        isPlaying = false;
+      }
+    };
+  </script>
+
+</body>
+</html>
+
